@@ -4,7 +4,7 @@ import './globals.css';
 
 export default function Home() {
   return (
-   <div>
+   <div className="p-2">
       <Section1Slider/>
    </div>
   );
