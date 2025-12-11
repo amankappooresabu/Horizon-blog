@@ -45,13 +45,13 @@ export default function Section2Blog({ blogs, searchQuery }: Section2BlogProps) 
         </p>
       </div>
       
-      <div className="flex items-center justify-between mt-8 mb-6">
-        <div className="flex items-center gap-4 flex-wrap">
+      <div className="flex flex-col md:flex-row gap-3 md:gap-0 md:items-center justify-between mt-8 mb-6">
+        <div className="flex items-center gap-2 md:gap-4 flex-wrap">
           {categories.map((category) => (
             <button
               key={category}
               onClick={() => setSelectedCategory(category)}
-              className={`px-5 py-2 text-xl font-medium rounded-lg transition-colors ${
+              className={`px-5 py-2 text-sm sm:text-md md:text-lg lg:text-xl font-medium rounded-lg transition-colors ${
                 selectedCategory === category
                   ? 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                   : ''
