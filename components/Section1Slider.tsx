@@ -8,31 +8,6 @@ import { slides } from '@/constants/Sliderdata';
 export default function Section1Slider() {
   const [currentSlide, setCurrentSlide] = useState(0);
 
-  // const slides = [
-  //   {
-  //     id: 1,
-  //     title: 'Exploring the Wonders of Hiking',
-  //     excerpt: 'An iconic landmark, this post unveils the secrets that make this destination a traveler’s paradise.',
-  //     image: '/Slider1.jpg',
-  //     Tag: 'Destination',
-  //   },
-  //   {
-  //     id: 2,
-  //     title: 'Exploring the Wonders of Hiking',
-  //     excerpt: 'An iconic landmark, this post unveils the secrets that make this destination a traveler’s paradise.',
-  //     image: '/Slider1.jpg',
-  //     Tag: 'Destination',
-  //   },
-  //   {
-  //     id: 3,
-  //     title: 'Exploring the Wonders of Hiking',
-  //     excerpt: 'An iconic landmark, this post unveils the secrets that make this destination a traveler’s paradise.',
-  //     image: '/Slider1.jpg',
-  //     Tag: 'Destination',
-  //   },
-  // ];
-
-  // Auto-slide every 5 seconds
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % slides.length);
@@ -41,7 +16,7 @@ export default function Section1Slider() {
     return () => clearInterval(timer);
   }, [slides.length]);
 
-  const goToSlide = (index) => {
+  const goToSlide = (index: number) => {
     setCurrentSlide(index);
   };
 
@@ -60,19 +35,19 @@ export default function Section1Slider() {
             fill
             className="object-cover"
             priority={index === 0}
+            loading='eager'
           />
         </div>
       ))}
 
-      {/* Text Content - Lower Left */}
-      <div className="absolute bottom-5 left-0 p-8 z-1 flex flex-col gap-4 w-[40%]">
-      <button className='bg-white/20 backdrop-blur-lg text-white/80 text-2xl  py-2.5 rounded-full w-45'>
+      <div className="absolute bottom-5 left-0 p-8 z-1 flex flex-col gap-1 2xl:gap-2 w-[80%] lg:w-[50%]">
+      <span className='bg-white/20 backdrop-blur-lg text-white/80 text-lg 2xl:text-2xl  py-2.5 rounded-full w-35 2xl:w-45 text-center'>
       {slides[currentSlide].Tag}
-</button>
-        <h2 className="text-white text-5xl font-normal mb-2">
+</span>
+        <h2 className="text-white text-2xl xl:text-3xl 2xl:text-4xl font-normal 2xl:mb-2">
           {slides[currentSlide].title}
         </h2>
-        <p className="text-white/80 text-[28px] mb-6 leading-none">
+        <p className="text-white/80  text-[18px] xl:text-[20px] 2xl:text-[22px] mb-6 leading-6 xl:leading-none">
           {slides[currentSlide].excerpt}
         </p>
 
@@ -89,9 +64,9 @@ export default function Section1Slider() {
           ))}
         </div>
       </div>
-      <div className="absolute bottom-25 right-0 p-8 z-1 flex flex-col items-end  gap-4 w-[23%]">
+      <div className="absolute bottom-25 hidden lg:flex right-1 p-8 z-1 flex flex-col items-end  lg:gap-1 xl:gap-2  w-[33%]">
        <div className='flex gap-4 items-center'>
-        <div className='w-15 h-15  relative overflow-hidden'>
+        <div className='w-7 h-7 xl:w-10 xl:h-10  relative overflow-hidden'>
            <Image
             src='/person1.jpg'
             alt='Human'
@@ -99,12 +74,12 @@ export default function Section1Slider() {
             className="object-cover rounded-full"
             />
           </div>
-          <h1 className='text-white/80 text-[30px]'>Theodore Reginald</h1>
+          <h1 className='text-white/80 lg:text-[24px] xl:text-[26px] 2xl:text-[26px]'>Theodore Reginald</h1>
        </div>
        <div className='flex  items-center gap-4'>
-        <p className='text-white/80 text-[28px]'>24 Jan 2024</p>
+        <p className='text-white/80 lg:text-[18px] xl:text-[20px] 2xl:text-[24px]'>24 Jan 2024</p>
         <div className='bg-white rounded-full w-2 h-2'/>
-        <p className='text-white/80 text-[28px]'>10 mins read</p>
+        <p className='text-white/80 lg:text-[18px]  xl:text-[20px] 2xl:text-[24px]'>10 mins read</p>
        </div>
         
       </div>
